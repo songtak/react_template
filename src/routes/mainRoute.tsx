@@ -1,14 +1,41 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from "../pages/common/ErrorPage";
-import MainPage from "../pages/MainPage";
-
+import { DOMRouterOpts } from "react-router-dom";
+import { RouteObject } from "react-router";
+import ErrorPage from "@pages/common/ErrorPage";
+import MainPage from "@pages/MainPage";
+import LoginPage from "@pages/LoginPage";
+import AuthTestPage from "@pages/AuthTestPage";
 /** 기본 라우터 */
-const defaultRoutes: RouterProvider[] = [
+const defaultRoutes: RouteObject[] = [
+  {
+    path: "/",
+    element: <LoginPage />,
+    errorElement: <ErrorPage />,
+  },
+];
+
+/** token 값이 유효할 때 라우트 */
+const authRoutes: RouteObject[] = [
   {
     path: "/",
     element: <MainPage />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/auth",
+    element: <AuthTestPage />,
+    errorElement: <ErrorPage />,
+  },
+  // {
+  //   path: "/auth",
+  //   // element: <AuthTestPage />,
+  //   errorElement: <ErrorPage />,
+  //   children: [
+  //     // New blog index route
+  //     { index: true, Component: () => <h1>Blog Index</h1> },
+  //     // Blog subapp splat route added for /blog/posts matching
+  //     { path: "*", Component: AuthTestPage },
+  //   ],
+  // },
 ];
 
 /**
@@ -22,4 +49,4 @@ const defaultRoutes: RouterProvider[] = [
 //   },
 // ]);
 
-export { defaultRoutes };
+export { defaultRoutes, authRoutes };
