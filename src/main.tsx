@@ -1,15 +1,9 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-
-import ScrollToTop from "@libs/ScrollToTop";
+import * as React from "react";
+import * as ReactDOM from "react-dom/client";
 import MainRouter from "./routes/MainRouter";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ScrollToTop />
-      <MainRouter />
-    </BrowserRouter>
+    <MainRouter />
   </React.StrictMode>
 );

@@ -50,7 +50,7 @@ const useLocalStorageStore = create(
     (set) => ({
       access_token: "",
       setAccessToken: (access_token) =>
-        set((state) => ({ access_token: access_token })),
+        set(() => ({ access_token: access_token })),
       refresh_token: "",
     }),
     storageOptions
