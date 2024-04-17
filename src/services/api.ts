@@ -12,7 +12,8 @@ const axiosInstance = axios.create({
 
 // 요청 인터셉터 추가
 axiosInstance.interceptors.request.use(
-  (config: AxiosRequestConfig) => {
+  // (config: AxiosRequestConfig) => {
+  (config: any) => {
     // 여기서 로컬 스토리지 등에서 토큰을 가져옵니다.
     const token = localStorage.getItem("access_token");
 
